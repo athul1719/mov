@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container" >
+    <div class="row">
+
+        <div class="col-md-6" >
+            <img src="{{movie.img.url}}" width="250px" height="200px">
+        </div>
+        <div class="col-md-6">
+            <h5 class="card-title">movie:{{movie.name}}</h5>
+      <p class="card-text">description:{{movie.desc}}</p>
+   <p class="card-text">actors:{{movie.actors}}</p>
+       <p class="card-text">release date:{{movie.date}}</p>
+       <p class="card-text">category:{{movie.category}}</p>
+      <p class="card-text">trailer:<a href="{{movie.trailer}}">{{movie.trailer}}</a></p>
+{% if request.user == movie.owner %}
+        <a class="btn btn-warning" href="{% url 'movieapp:update' movie.id %}">update</a>
+        <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">delete</a>
+{% endif %}
+        </div>
+
+
+    </div></div>
+
+{% endblock %}

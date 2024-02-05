@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if user.is_authenticated %}
+<div style="color:grey">
+<h1>USER NAME:{{user.username}}</h1>
+<h3>FIRST NAME:{{user.first_name}}</h3>
+<h3>LAST NAME:{{user.last_name}}</h3>
+<h3>EMAIL:{{user.email}}</h3></div>
+
+{% endif %}
+{% endblock %}

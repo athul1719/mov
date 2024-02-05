@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if category %}
+<div>
+    <div class="row my_row_class">
+        <div class="mx-auto">
+        <p><a href="{% url 'movieapp:moviecat' %}">our product collection</a> </p>
+    </div></div>
+</div>
+{% endif %}
+<div class="mx_auto">
+    {% if category %}
+
+</div>
+<br>
+<div>
+    <h1 class="text-center my_title">{{category.name}}</h1>
+
+
+</div>
+{% else %}
+<div>
+
+</div>
+<br>
+<div>
+    <h1 class="text-center my_title">our products collections</h1>
+    <p class="text-justify">contrary to popular belief</p>
+</div>
+
+{% endif %}
+<div class="container">
+<div class="row mx_auto">
+    {% for movie in movie.object_list %}
+<div class="my_bottom_margin col-9 col-sm-12  col-md-4 xol-lg-4">
+    <div class="card text-center" style="min-width:18rem;">
+<a href="{{movie.get_url}}"><img src="{{movie.img.url}}" alt="{{movie.name}}" class="card-img-top my_image" width="200px" ></a>
+
+<div class="card-body">
+
+    <h4>{{movie.name}}</h4>
+     <p>{{movie.date}}</p>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+    <br>
+</div>
+{% endblock%}
